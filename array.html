@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array JS</title>
+</head>
+<body>
+    <script>
+        let products = ["Controller", "Kacamata", "Tissue", "Buku", "Laptop", "Keyboard", "Mouse", "Mousepad"]
+
+        // hapus element pertama
+        products.shift()
+        // hapus element akhir
+        products.pop()
+        // tambah element baru bisa lebih dari satu
+        products.push("Gelas", "Cooling Pad")
+        // hapus dari index berapa? dan berapa yang mau di hapus?
+        products.splice(1, 1)
+        // jika data sebelumnya sudah ada maka akan di ubah
+        // tapi jika tidak ada maka akan di buatkan baru
+        products[5] = "Piring"
+
+        document.write("<h3>Daftar Produk</h3>")
+
+        document.write("<ol>")
+
+            // for (let i = 0; i < products.length; i++) {
+            //     document.write(`<li>${products[i]}</li>`)
+            // }
+
+            products.forEach((data) => {
+                document.write(`<li>${data}</li>`)
+            })
+
+        document.write("</ol>")
+
+        // filter
+        const angka = [1,2,3,4,5,6,7,8,9,10]
+
+        // ambil data yang ganjil
+        const filteredAngka = angka.filter(item => item % 2 == 1)
+
+        console.log(filteredAngka)
+
+        // includes
+        let tanaman = ["kaktus", "putri malu", "rumput", "matahari"]
+
+        tanaman.pop()
+
+        if (tanaman.includes("matahari")) {
+            console.log("tanaman matahari sudah ada di database!")
+        } else {
+            console.log("404 not found")
+        }
+
+        // sort & hapus duplicate number
+        let numArr = [6,4,5,1,2,6,3,3]
+        const num = [...new Set(numArr)]
+        num.sort()
+        console.log(num)
+
+        // reduce & rest operator
+        // jika param menggunakan ... maka akan jadi array
+        function jumlahkan(...angka) {
+            return angka.reduce((total, nilai) => total + nilai, 1)
+        }
+
+        console.log(jumlahkan(1,2,3,4,5)) // 16
+
+    </script>
+</body>
+</html>
